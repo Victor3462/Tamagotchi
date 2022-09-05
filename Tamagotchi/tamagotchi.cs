@@ -13,7 +13,6 @@ public class Tamagotchi
     private Random generator;
 
     private List<string> words = new List<string>() {"Hello!"};
-}
 
 public Tamagotchi()
 {
@@ -32,4 +31,5 @@ public void feed()
     
      // jag tycker det är mer logiskt att hunger går ner och inte upp
 
+}
 }
