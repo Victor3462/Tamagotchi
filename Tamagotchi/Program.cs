@@ -22,10 +22,6 @@ while (newTG.GetAlive() == true)
     {
         newTG.feed();
     }
-    if (userChoice.ToLower() == "p")
-    {
-        newTG.printStats();
-    }
     if (userChoice.ToLower() == "h")
     {
         newTG.Hi();

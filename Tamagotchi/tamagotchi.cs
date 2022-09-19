@@ -22,7 +22,7 @@ public class Tamagotchi
 
     public void feed()
     {
-        int rndFeed = generator.Next(10, 20);
+        int rndFeed = generator.Next(5, 20);
 
         Console.WriteLine($"{name} Tamagotchi just ate! +{rndFeed} hunger!");
 
@@ -35,19 +35,14 @@ public class Tamagotchi
 
         Console.ReadLine();
 
-
-        choice();
-
         // jag tycker det är mer logiskt att hunger går ner och inte upp
 
     }
 
     public void printStats()
     {
-        Console.WriteLine($"Name: {name}, Hunger: {hunger}/100, Boredom: {boredom}");
+        Console.WriteLine($"Name: {name} Hunger: {hunger}/100 Boredom: {boredom}");
         Console.ReadLine();
-
-        choice();
 
         // printar tmcghis stats 
 
@@ -56,17 +51,15 @@ public class Tamagotchi
     private void reduceBoredom()
     {
 
-        int rndFun = generator.Next(10, 20);
+        int rndFun = generator.Next(5, 20);
         Console.WriteLine($"{name} is having fun and is now less bored! +{rndFun} boredom!");
 
 
         boredom = boredom + rndFun;
 
-        if (boredom > 0) { boredom = 0; }
-        if (boredom < 100) { boredom = 100; }
+        if (boredom < 0) { boredom = 0; }
+        if (boredom > 100) { boredom = 100; }
         Console.ReadLine();
-
-        choice();
 
         // När denna körs så har tmchi roligare och boredom staten blir + 10-20
     }
@@ -85,8 +78,6 @@ public class Tamagotchi
             Console.WriteLine($"Teach {name} a word first!");
             Console.ReadLine();
         }
-
-        choice();
 
         // Tar en slumpmässig int från totalen av ord i words
         // om det finns ord där så säger tmchi ordet annars måste man lära den ett ord först
@@ -112,7 +103,6 @@ public class Tamagotchi
         words.Add(word);
         Console.WriteLine($"{name} just learnt the word: {word}!");
         reduceBoredom();
-        choice();
 
         // Lär Tamagotchin ord genom att fråga om orden sen spara den i word stringen som i sin tur,
         // blir en del av words listen. 
@@ -130,9 +120,7 @@ public class Tamagotchi
 
         Console.ReadLine();
 
-        choice();
-
-        // not used due to causing problems i cant seem to fix
+        // Använde aldrig pga helt onödigt
     }
 
     public void choice()
@@ -144,7 +132,7 @@ public class Tamagotchi
         Console.WriteLine($"H: Say Hi to {name}");
         Console.WriteLine($"P: See {name}'s Stats");
         Console.WriteLine(" ");
-        Console.WriteLine($"Name: {name}, Hunger: {hunger}/100, Boredom: {boredom}");
+        Console.WriteLine($"Name: {name} Hunger: {hunger}/100 Boredom: {boredom}/100");
         Console.WriteLine(" ");
 
 
