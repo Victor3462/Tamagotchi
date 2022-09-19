@@ -17,6 +17,7 @@ while (newTG.GetAlive() == true)
 {
     newTG.choice();
 
+
     string userChoice = Console.ReadLine();
     if (userChoice.ToLower() == "f")
     {
@@ -30,7 +31,10 @@ while (newTG.GetAlive() == true)
     {
         newTG.teach();
     }
-
+    if (userChoice.ToLower() == "s")
+    {
+        newTG.circusShow();
+    }
 }
 
 Console.Clear();

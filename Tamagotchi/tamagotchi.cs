@@ -4,9 +4,11 @@ using System.Collections.Generic;
 public class Tamagotchi
 {
     public string name;
+    public int age;
     public string word;
     private int boredom;
     private int hunger;
+    private int money;
     private bool isAlive;
     private Random generator = new Random();
     private List<string> words = new List<string>();
@@ -16,6 +18,8 @@ public class Tamagotchi
         isAlive = true;
         hunger = 50;
         boredom = 50;
+        money = 20;
+        age = 0;
         // BASE STATS   
 
     }
@@ -23,6 +27,7 @@ public class Tamagotchi
     public void feed()
     {
         int rndFeed = generator.Next(5, 20);
+        money = money - 5;
 
         Console.WriteLine($"{name} Tamagotchi just ate! +{rndFeed} hunger!");
 
@@ -87,6 +92,7 @@ public class Tamagotchi
     {
         boredom = boredom - 5;
         hunger = hunger - 5;
+        age++;
 
         if (hunger < 0 || boredom < 0)
         {
@@ -98,6 +104,7 @@ public class Tamagotchi
 
     public void teach()
     {
+        money = money - 5;
         Console.WriteLine($"What word would you like to teach {name}?");
         word = Console.ReadLine();
         words.Add(word);
@@ -123,16 +130,25 @@ public class Tamagotchi
         // Använde aldrig pga helt onödigt
     }
 
+    public void circusShow()
+    {
+        int rndCoin = generator.Next(15, 30);
+        Console.WriteLine($"{name} jumped through a flaming hoop during a circus show!");
+        Console.WriteLine($"They gained +{rndCoin} coins!");
+
+        money = money + rndCoin;
+        Console.ReadLine();
+    }
     public void choice()
     {
         Console.Clear();
         Console.WriteLine($"Choose one option:");
-        Console.WriteLine($"F: Dinner Time for {name}");
-        Console.WriteLine($"T: Teach {name} a word");
-        Console.WriteLine($"H: Say Hi to {name}");
-        Console.WriteLine($"P: See {name}'s Stats");
+        Console.WriteLine($"F: Dinner Time for {name} Cost: 5 Coins");
+        Console.WriteLine($"T: Teach {name} a word Cost: 5 Coins");
+        Console.WriteLine($"H: Say Hi to {name} Cost: FREE");
+        Console.WriteLine($"S: Gain money by having a Circus Show with {name}");
         Console.WriteLine(" ");
-        Console.WriteLine($"Name: {name} Hunger: {hunger}/100 Boredom: {boredom}/100");
+        Console.WriteLine($"Name: {name} Hunger: {hunger}/100 Boredom: {boredom}/100 Coins: {money} Age: {age}");
         Console.WriteLine(" ");
 
 
