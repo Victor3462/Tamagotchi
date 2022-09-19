@@ -34,10 +34,6 @@ while (newTG.GetAlive() == true)
     {
         newTG.teach();
     }
-    else
-    {
-        newTG.nothing();
-    }
 
 }
 
